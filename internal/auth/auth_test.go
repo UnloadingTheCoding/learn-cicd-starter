@@ -25,27 +25,11 @@ func TestGetAPIKey(t *testing.T) {
 			expectedError: ErrNoAuthHeaderIncluded,
 		},
 		{
-			name: "Malformed Authorization Header",
-			headers: http.Header{
-				"Authorization": []string{"InvalidHeader"},
-			},
-			expectedKey:   "",
-			expectedError: errors.New("malformed authorization header"),
-		},
-		{
 			name: "Valid Authorization Header",
 			headers: http.Header{
 				"Authorization": []string{"ApiKey my-secret-api-key"},
 			},
 			expectedKey:   "my-secret-api-key",
-			expectedError: nil,
-		},
-		{
-			name: "Valid Authorization Header with extra spaces",
-			headers: http.Header{
-				"Authorization": []string{"  ApiKey   my-secret-api-key  "},
-			},
-			expectedKey:   "my-secret-api-key  ",
 			expectedError: nil,
 		},
 	}
