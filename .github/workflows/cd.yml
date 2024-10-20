@@ -36,3 +36,6 @@ jobs:
 
     - name: 'Push Image'
       run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/notely-439205/notely-ar-repo/2f735c89213f:latest .'
+
+      # added change
+      
